@@ -1,5 +1,5 @@
 const { createLogger, format, transports } = require("winston");
-const { combine, timestamp, errors, json } = format;
+const { combine, timestamp, errors, json, colorize, simple } = format;
 const { appSettings, log } = require("../config/vars");
 
 const logger = createLogger({
@@ -21,9 +21,16 @@ const logger = createLogger({
 // if not testing, add file loggers
 if (appSettings.env != "test") {
   logger.add(
-    new transports.File({ filename: "logs/error.log", level: "error" })
+    new transports.File({
+      filename: "logs/error.log",
+      level: "error",
+    })
   );
-  logger.add(new transports.File({ filename: "logs/combined.log" }));
+  logger.add(
+    new transports.File({
+      filename: "logs/combined.log",
+    })
+  );
 }
 
 //
@@ -33,9 +40,12 @@ if (appSettings.env != "test") {
 if (appSettings.env !== "production" && appSettings.env !== "test") {
   logger.add(
     new transports.Console({
-      format: format.simple(),
+      format: combine(colorize(), simple()),
     })
   );
 }
 
-module.exports = logger;
+// Create a local instance
+const localLogger = (module) => logger.child({ module });
+
+module.exports = localLogger;

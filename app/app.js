@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 
 const { appSettings } = require("./config/vars");
+const logger = require("./utilities/logger")("app");
 
 const startApi = () => {
   // Api server instance
@@ -26,7 +27,7 @@ const startApi = () => {
   // Start the server
   app.listen(appSettings.port, () => {
     // Log
-    console.log(
+    logger.info(
       `${appSettings.appName} ${appSettings.env} server started on: ${appSettings.url}`
     );
   });
