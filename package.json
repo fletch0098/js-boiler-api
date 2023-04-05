@@ -1,0 +1,44 @@
+{
+  "name": "js-boiler-api",
+  "version": "1.0.0",
+  "description": "JS API boiler plate",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon start",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fletch0098/js-boiler-api.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "api",
+    "boiler-plate"
+  ],
+  "author": "brian.m.fletcher@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fletch0098/js-boiler-api/issues"
+  },
+  "homepage": "https://github.com/fletch0098/js-boiler-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.37.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "nodemon": "^2.0.21",
+    "prettier": "2.8.7"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
