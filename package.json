@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -33,12 +37,16 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "nodemon": "^2.0.21",
     "prettier": "2.8.7"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": [
+      "npm run lint:fix",
+      "npm run format:write"
+    ]
   }
 }
