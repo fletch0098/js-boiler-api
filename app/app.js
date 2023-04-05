@@ -8,6 +8,7 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 const { appSettings } = require("./config/vars");
 const logger = require("./utilities/logger")("app");
 const ApiError = require("./utilities/api.error");
+const routes = require("./routes/routes");
 const notFound = require("./middleware/not-found.middleware");
 const errorHandler = require("./middleware/error-handler.middleware");
 
@@ -23,20 +24,7 @@ const startApi = () => {
   app.use(express.json());
 
   // Routes
-
-  // Healthcheck
-  app.get("/", (req, res) => {
-    res.send("OK");
-  });
-
-  // Error
-  app.get("/error", (req, res, next) => {
-    throw new ApiError(
-      `Error: ${ReasonPhrases.IM_A_TEAPOT}`,
-      "0418",
-      StatusCodes.IM_A_TEAPOT
-    );
-  });
+  app.use("/", routes);
 
   // Not found 404
   app.use(notFound);
