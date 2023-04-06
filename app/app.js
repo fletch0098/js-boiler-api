@@ -7,10 +7,11 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const { appSettings } = require("./config/vars");
 const logger = require("./utilities/logger")("app");
-const ApiError = require("./utilities/api.error");
 const routes = require("./routes/routes");
 const notFound = require("./middleware/not-found.middleware");
 const errorHandler = require("./middleware/error-handler.middleware");
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger/swagger_output.json");
 
 // Start the api
 const startApi = () => {
@@ -22,6 +23,9 @@ const startApi = () => {
 
   // Accept JSON
   app.use(express.json());
+
+  // Swagger docs
+  app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
   // Routes
   app.use("/", routes);
@@ -38,6 +42,7 @@ const startApi = () => {
     logger.info(
       `${appSettings.appName} ${appSettings.env} server started on: ${appSettings.url}`
     );
+    logger.info(`Api docs: ${appSettings.url}/doc`);
   });
 };
 module.exports = { startApi };
