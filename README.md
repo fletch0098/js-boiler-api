@@ -15,7 +15,7 @@ Node.js Api boiler plate to kick off backend projects
 
 ## Installation
 
-Clone the repo, install the dependencies
+Clone the repo, make it your own, install the dependencies and add remote
 
 ```bash
 git clone https://github.com/fletch0098/js-boiler-api
@@ -24,6 +24,18 @@ cd js-boiler-api
 
 ```bash
 npm install
+```
+
+```bash
+rm -rf .git && git init && npm init
+```
+
+```bash
+git init
+```
+
+```bash
+git remote add origin {REMOTE_URL}
 ```
 
 ## Settings
@@ -72,6 +84,22 @@ or
 
 ```bash
 npm test -- --coverage
+```
+
+## Prettier
+
+This repository uses prettier to keep the code consistent and readable. Prettier will run on all staged filed before commit, but you may also run it manually at any time.
+
+```bash
+npm run format:write
+```
+
+## ESLint
+
+This repository uses eslint. Linter will run on all staged filed before commit, but you may also run it manually at any time.
+
+```bash
+npm run lint:fix
 ```
 
 ## Roadmap
