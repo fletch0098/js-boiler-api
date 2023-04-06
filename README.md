@@ -60,6 +60,7 @@ npm run start:dev
 
 ## Folder Structure
 
+```bash
 ├── app
 │   ├── config
 │   ├── controllers
@@ -76,6 +77,7 @@ npm run start:dev
 ├── README.md
 ├── package.json
 └── .gitignore
+```
 
 ## Api Docs
 
