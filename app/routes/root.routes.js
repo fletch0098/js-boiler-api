@@ -12,4 +12,10 @@ router.get("/health", controller.health);
 // debug /debug
 router.get("/debug", controller.debug);
 
+// error /error
+router.get("/error", controller.error);
+
+// error /internal-error
+router.get("/internal-error", controller.internalError);
+
 module.exports = router;

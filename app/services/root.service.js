@@ -2,6 +2,8 @@
 
 // Imports
 const { appSettings } = require("../config/vars");
+const ApiError = require("../utilities/api.error");
+const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 // app info
 const root = () => {
@@ -25,12 +27,28 @@ const debug = () => {
     debug: "OK",
   };
 
-  // throw('Debug Error')
   return data;
+};
+
+// error
+const error = () => {
+  throw new ApiError(
+    ReasonPhrases.IM_A_TEAPOT,
+    "0418",
+    StatusCodes.IM_A_TEAPOT,
+    true
+  );
+};
+
+// internalError
+const internalError = () => {
+  throw new Error("Internal Error");
 };
 
 module.exports = {
   root,
   health,
   debug,
+  error,
+  internalError,
 };

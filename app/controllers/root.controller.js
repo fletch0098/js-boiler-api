@@ -21,8 +21,20 @@ const debug = (req, res, next) => {
   return res.json(data);
 };
 
+// error
+const error = (req, res, next) => {
+  service.error();
+};
+
+// internalError
+const internalError = (req, res, next) => {
+  service.internalError();
+};
+
 module.exports = {
   root,
   health,
   debug,
+  error,
+  internalError,
 };

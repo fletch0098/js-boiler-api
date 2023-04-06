@@ -1,7 +1,7 @@
 // index.js - js-boiler-api
 
 // Imports
-const app = require("./app/app");
+const server = require("./app/server");
 
 // Run the app
-app.startApi();
+server();
