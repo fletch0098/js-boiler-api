@@ -4,11 +4,13 @@
 const { appSettings } = require("../config/vars");
 const ApiError = require("../utilities/api.error");
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
+var pjson = require("../../package.json");
 
 // app info
 const root = () => {
   const data = {
     app: appSettings.appName,
+    version: pjson.version,
     env: appSettings.env,
     date: new Date(),
     hostUrl: appSettings.hostUrl,
