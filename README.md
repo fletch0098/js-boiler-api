@@ -58,6 +58,25 @@ or in development mode
 npm run start:dev
 ```
 
+## Folder Structure
+
+├── app
+│   ├── config
+│   ├── controllers
+│   ├── middleware
+│   ├── routes
+│   ├── services
+│   ├── swagger
+│   ├── utilities
+│   ├── app.js
+│   └── server.js
+├── node_modules
+├── .env
+├── index.js
+├── README.md
+├── package.json
+└── .gitignore
+
 ## Api Docs
 
 Api is documented using swagger. Generate the documentation bu running:
