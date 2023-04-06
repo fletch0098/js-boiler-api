@@ -15,7 +15,7 @@ Node.js Api boiler plate to kick off backend projects
 
 ## Installation
 
-Clone the repo, make it your own, install the dependencies and add remote
+Clone the repo, make it your own, install the dependencies
 
 ```bash
 git clone https://github.com/fletch0098/js-boiler-api
@@ -23,19 +23,15 @@ cd js-boiler-api
 ```
 
 ```bash
-npm install
-```
-
-```bash
-rm -rf .git && git init && npm init
-```
-
-```bash
-git init
-```
-
-```bash
+rm -rf .git && git init && npm init -y
 git remote add origin {REMOTE_URL}
+git add --all
+git commit -m "first commit"
+git push -u origin main
+```
+
+```bash
+npm install
 ```
 
 ## Settings
